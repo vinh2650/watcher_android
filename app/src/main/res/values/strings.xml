@@ -6,11 +6,12 @@
     <string name="permission_required_toast">Location permission is required for this demo.</string>
     <string name="title_activity_login">Guardians</string>
 
-    // String login
+    // String login activity
     <string name="btnLogin">Login</string>
-    <string name="etxPassword">Password</string>
-    <string name="etxEmail">Email</string>
+    <string name="Password">Password</string>
+    <string name="Email">Email</string>
     <string name="forgot_password">Forgotten account?</string>
+    <string name="register">Not a member? Sign up now.</string>
     <string name="title_forgot_password">Find Your Account</string>
     <string name="message_forgot_password">Enter you Email</string>
     <string name="email_or_password_invalid">Error: Email or password is invalid!</string>
@@ -20,4 +21,15 @@
     <string name="email_null">Please enter your email.</string>
     <string name="password_null">Please enter your password.</string>
     <string name="title_activity_user_profile">UserProfile</string>
+    <string name="title_activity_register">Register</string>
+
+    // String Register activity
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in_already">Already a member? Sign in now.</string>
+    <string name="first_name">First Name</string>
+    <string name="Last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="match_password">Password doesn\'t match</string>
+
 </resources>

@@ -1,7 +1,6 @@
 package com.example.dell.myapplication;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,14 +12,12 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dell.myapplication.utils.NDialog;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -37,7 +34,9 @@ public class Login extends AppCompatActivity {
     EditText etxEmail;
     EditText etxPassword;
 
+    TextView txtMessage;
     TextView txtForgotPassword;
+    TextView txtRegister;
 
     Button btnLogin;
 
@@ -55,17 +54,17 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final ProgressDialog progressDialog = NDialog.setProgressDialog(Login.this, null, "Please wait...");
-        final AlertDialog alertDialog = NDialog.setAlertDialog(Login.this, "Error", null, "OK");
-
         etxEmail = (EditText) findViewById(R.id.etxEmail);
         etxPassword = (EditText) findViewById(R.id.etxPassword);
-
-        etxPassword.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                Log.d("keycode", "" + keyCode);
-                if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    switch (keyCode) {
+        etxPassword.setOnKeyListener(new View.OnKeyListener()
+        {
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                Log.d ("keycode", ""+ keyCode);
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    switch (keyCode)
+                    {
                         case 66:
                             btnLogin.performClick();
                             break;
@@ -77,21 +76,27 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        txtForgotPassword = (TextView) findViewById(R.id.txtForgotPassword);
+        txtMessage = (TextView)findViewById(R.id.txtMessage);
+        txtForgotPassword = (TextView)findViewById(R.id.txtForgotPassword);
+        txtRegister = (TextView)findViewById(R.id.txtRegister);
 
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnLogin.setEnabled(false);
+
                 String email = etxEmail.getText().toString();
                 String password = etxPassword.getText().toString();
-
-                if (password.isEmpty()) {
-                    alertDialog.setMessage(getString(R.string.password_null));
-                    alertDialog.show();
+                if (email.isEmpty()) {
+                    btnLogin.setEnabled(true);
+                    txtMessage.setVisibility(View.VISIBLE);
+                    txtMessage.setText(getString(R.string.email_null));
+                } else if (password.isEmpty()) {
+                    btnLogin.setEnabled(true);
+                    txtMessage.setVisibility(View.VISIBLE);
+                    txtMessage.setText(getString(R.string.password_null));
                 } else {
-                    progressDialog.show();
-
                     RequestParams rp = new RequestParams();
                     rp.add("grant_type", "password");
                     rp.add("username", email);
@@ -102,14 +107,13 @@ public class Login extends AppCompatActivity {
                     HttpUtils.post("/token", rp, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            btnLogin.setEnabled(true);
                             try {
-                                progressDialog.dismiss();
-
                                 // get access_token and refresh_token
                                 access_token = response.getString("access_token");
                                 refresh_token = response.getString("refresh_token");
-                                Intent intent = new Intent(Login.this, UserProfile.class);
-                                startActivity(intent);
+                                Intent intent_userProfile = new Intent(Login.this, UserProfile.class);
+                                startActivity(intent_userProfile);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -118,22 +122,17 @@ public class Login extends AppCompatActivity {
 
                         @Override
                         public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-
-                            progressDialog.dismiss();
-
-                            if (statusCode == 0) {
-                                alertDialog.setMessage(getString(R.string.internet_error));
-                                alertDialog.show();
-                            } else {
-                                alertDialog.setMessage(getString(R.string.email_or_password_invalid));
-                                alertDialog.show();
-                            }
+                            btnLogin.setEnabled(true);
+                            txtMessage.setVisibility(View.VISIBLE);
+                            if (statusCode == 0)
+                                txtMessage.setText(getString(R.string.internet_error));
+                            else
+                                txtMessage.setText(getString(R.string.email_or_password_invalid));
                         }
                     });
                 }
             }
         });
-
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         final EditText input = new EditText(Login.this);
@@ -150,14 +149,17 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    builder.setTitle(getString(R.string.title_forgot_password))
+                    builder
+                            .setTitle(getString(R.string.title_forgot_password))
                             .setMessage(getString(R.string.message_forgot_password))
                             .setView(input)
                             .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-
+                                    dialog.cancel();
+                                    // Refresh main activity
+                                    finish();
+                                    startActivity(getIntent());
                                 }
                             })
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -185,12 +187,25 @@ public class Login extends AppCompatActivity {
                                             }
                                         });
                                     }
-                                    dialog.dismiss();
+                                    dialog.cancel();
+                                    // Refresh main activity
+                                    finish();
+                                    startActivity(getIntent());
                                 }
-                            });
-                    AlertDialog a = builder.create();
-                    a.show();
+                            })
+                            .create()
+                            .setCanceledOnTouchOutside(false);
+                    builder.setCancelable(false);
+                    builder.show();
                 }
+            }
+        });
+
+        txtRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_register = new Intent(Login.this, Register.class);
+                startActivity(intent_register);
             }
         });
     }
