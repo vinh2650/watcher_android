@@ -68,33 +68,38 @@ public class Register extends AppCompatActivity {
                 String Password     = edtPassword.getText().toString();
                 String ConfirmPassword = edtConfirmPassword.getText().toString();
                 String message = "";
-//                    llMessage_register.setVisibility(View.VISIBLE);
-//                    txtMessage_register.setText(getString(R.string.match_password));
-                RequestParams rp = new RequestParams();
-                rp.add("email", Email);
-                rp.add("firstName", FirstName);
-                rp.add("lastName", LastName);
-                rp.add("phoneNumber", PhoneNumber);
-                rp.add("organizationDestinationId", "");
-                rp.add("passwords", Password);
-                rp.add("confirmPasswords", ConfirmPassword);
+                if (!Password.equals(ConfirmPassword))
+                {
+                    llMessage_register.setVisibility(View.VISIBLE);
+                    txtMessage_register.setText(getString(R.string.match_password));
+                }
+                else {
+                    RequestParams rp = new RequestParams();
+                    rp.add("email", Email);
+                    rp.add("firstName", FirstName);
+                    rp.add("lastName", LastName);
+                    rp.add("phoneNumber", PhoneNumber);
+                    rp.add("organizationDestinationId", "");
+                    rp.add("passwords", Password);
+                    rp.add("confirmPasswords", ConfirmPassword);
 
-                HttpUtils.post("/api/v1/user/register", rp, new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Log.d("statusCode: ","" + statusCode);
-                        Log.d("headers: ", Arrays.toString(headers));
-                        Log.d("response: ",response.toString());
-                    }
+                    HttpUtils.post("/api/v1/user/register", rp, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Log.d("statusCode: ", "" + statusCode);
+                            Log.d("headers: ", Arrays.toString(headers));
+                            Log.d("response: ", response.toString());
+                        }
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        Log.d("statusCode: ","" + statusCode);
-                        Log.d("headers: ", Arrays.toString(headers));
-                        Log.d("throwable: ",throwable.toString());
-                        Log.d("errorResponse: ",errorResponse.toString());
-                    }
-                });
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            Log.d("statusCode: ", "" + statusCode);
+                            Log.d("headers: ", Arrays.toString(headers));
+                            Log.d("throwable: ", throwable.toString());
+                            Log.d("errorResponse: ", errorResponse.toString());
+                        }
+                    });
+                }
             }
         });
     }
