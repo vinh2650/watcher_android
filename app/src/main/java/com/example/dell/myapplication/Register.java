@@ -29,8 +29,7 @@ public class Register extends AppCompatActivity {
         txtSignUp_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_signIn = new Intent(Register.this, Login.class);
-                startActivity(intent_signIn);
+                finish();
             }
         });
 

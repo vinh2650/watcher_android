@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.example.dell.myapplication.Register"
-    android:background="@drawable/login_bg_blur">
+    android:background="@drawable/login_bg_blacken">
 
     <include layout="@layout/content_register" />
 

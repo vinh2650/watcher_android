@@ -4,103 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#96000000"
+    android:padding="20sp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.dell.myapplication.Register"
     tools:showIn="@layout/activity_register">
+
+
+    <TextView
+        android:id="@+id/tw_title_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Create your Google Account"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
     <LinearLayout
+        android:id="@+id/registerinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:padding="5sp"
-        android:id="@+id/linearLayout2">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtMessage_register"
-            android:text="Password doesn't match"
-            android:textSize="22sp"
-            android:textColor="#fd0000"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edtFirstName_register"
-                android:hint="@string/first_name"
-                android:textSize="20sp"
-                android:layout_weight="1.5"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edtLastName_register"
-                android:hint="@string/Last_name"
-                android:textSize="20sp"
-                android:layout_weight="1"
-                />
-        </LinearLayout>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:id="@+id/edtPhoneNumber_register"
-            android:hint="@string/phone_number"
-            android:textSize="20sp"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edtEmail_register"
-            android:hint="@string/Email"
-            android:textSize="20sp"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:id="@+id/edtPassword_register"
-            android:hint="@string/Password"
-            android:textSize="20sp"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:id="@+id/edtConfirmPassword_register"
-            android:hint="@string/confirm_password"
-            android:textSize="20sp"
-            />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/btnSignUp_register"
-            android:background="#7d000000"
-            android:text="@string/sign_up"
-            android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:paddingTop="15sp"
-            android:paddingBottom="15sp"
-            />
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtSignUp_register"
-        android:text="@string/sign_in_already"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
         android:padding="15sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35sp" />
+        android:layout_below="@+id/tw_title_register"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/txtMessage_register"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_weight="0"
+            android:textColor="#fd0000"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/edtFirstName_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2sp"
+            android:layout_weight="1.5"
+            android:background="@drawable/edt_background"
+            android:hint="@string/first_name"
+            android:textSize="19sp" />
+
+        <EditText
+            android:id="@+id/edtLastName_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2sp"
+            android:layout_weight="1.5"
+            android:background="@drawable/edt_background"
+            android:hint="@string/Last_name"
+            android:textSize="19sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1sp"
+            android:layout_margin="10sp"
+            android:layout_weight="1.5"
+            android:background="#c0c0c0" />
+
+        <EditText
+            android:id="@+id/edtPhoneNumber_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2sp"
+            android:layout_weight="2"
+            android:background="@drawable/edt_background"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:textSize="19sp" />
+
+        <EditText
+            android:id="@+id/edtEmail_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2sp"
+            android:layout_weight="2"
+            android:background="@drawable/edt_background"
+            android:hint="@string/Email"
+            android:textSize="19sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1sp"
+            android:layout_margin="10sp"
+            android:layout_weight="2"
+            android:background="#c0c0c0" />
+
+        <EditText
+            android:id="@+id/edtPassword_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2sp"
+            android:layout_weight="3"
+            android:background="@drawable/edt_background"
+            android:hint="@string/Password"
+
+            android:inputType="textPassword"
+            android:textSize="19sp" />
+
+        <EditText
+            android:id="@+id/edtConfirmPassword_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@drawable/edt_background"
+            android:hint="@string/confirm_password"
+
+            android:inputType="textPassword"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/btnSignUp_register"
+            android:layout_width="250sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20sp"
+            android:layout_weight="3"
+            android:background="@drawable/button_background"
+            android:padding="8sp"
+            android:text="@string/sign_up"
+            android:textAllCaps="false"
+            android:textColor="@color/green2"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/txtSignUp_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15sp"
+            android:text="@string/sign_in_already"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_below="@+id/registerinfo"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0" />
+
+    </LinearLayout>
+
 </RelativeLayout>

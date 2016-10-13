@@ -21,8 +21,8 @@
     <item android:state_pressed="true" >
         <shape>
             <gradient
-                android:startColor="@color/green"
-                android:endColor="@color/green1"
+                android:startColor="@color/green1"
+                android:endColor="@color/green"
                 android:angle="270" />
             <corners
                 android:radius="3dp" />
@@ -39,7 +39,7 @@
             <gradient
                 android:endColor="@color/green"
                 android:startColor="@color/green1"
-                android:angle="270" />
+                android:angle="450" />
             <corners
                 android:radius="3dp" />
             <padding
