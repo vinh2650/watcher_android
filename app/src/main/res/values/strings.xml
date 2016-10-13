@@ -8,8 +8,8 @@
 
     // String login activity
     <string name="btnLogin">Login</string>
-    <string name="Password">Password</string>
-    <string name="Email">Email</string>
+    <string name="etxPassword">Password</string>
+    <string name="etxEmail">Email</string>
     <string name="forgot_password">Forgotten account?</string>
     <string name="register">Not a member? Sign up now.</string>
     <string name="title_forgot_password">Find Your Account</string>

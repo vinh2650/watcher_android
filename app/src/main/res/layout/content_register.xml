@@ -17,15 +17,25 @@
         android:orientation="vertical"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:padding="5sp"
-        android:id="@+id/linearLayout2">
-        <TextView
+        android:padding="5sp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtMessage_register"
-            android:text="Password doesn't match"
-            android:textSize="22sp"
-            android:textColor="#fd0000"/>
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:id="@+id/llMessage_register">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_error"
+                android:layout_marginRight="10sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtMessage_register"
+                android:textSize="22sp"
+                android:textColor="#fd0000"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edtEmail_register"
-            android:hint="@string/Email"
+            android:hint="@string/etxEmail"
             android:textSize="20sp"
             />
         <EditText
@@ -69,7 +79,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:id="@+id/edtPassword_register"
-            android:hint="@string/Password"
+            android:hint="@string/etxPassword"
             android:textSize="20sp"
             />
         <EditText
