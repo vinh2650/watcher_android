@@ -30,7 +30,7 @@ public class Register extends AppCompatActivity {
 
     Button  btnSignUp_register;
 
-    TextView txtSignUp_register;
+    TextView txtSignIn_register;
     TextView txtMessage_register;
 
     LinearLayout llMessage_register;
@@ -39,7 +39,8 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        txtSignUp_register = (TextView)findViewById(R.id.txtSignUp_register);
+
+        txtSignIn_register = (TextView)findViewById(R.id.txtSignUp_register);
         txtSignUp_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
