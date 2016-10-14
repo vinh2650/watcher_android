@@ -40,8 +40,8 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        txtSignIn_register = (TextView)findViewById(R.id.txtSignUp_register);
-        txtSignUp_register.setOnClickListener(new View.OnClickListener() {
+        txtSignIn_register = (TextView)findViewById(R.id.txtSignIn_register);
+        txtSignIn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent_signIn = new Intent(Register.this, Login.class);
