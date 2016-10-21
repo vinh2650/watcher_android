@@ -1,26 +1,21 @@
 package com.example.dell.myapplication;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.dell.myapplication.utils.HttpUtils;
 import com.example.dell.myapplication.utils.NDialog;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -105,7 +100,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,7 +127,7 @@ public class Login extends AppCompatActivity {
                                 // get access_token and refresh_token
                                 access_token = response.getString("access_token");
                                 refresh_token = response.getString("refresh_token");
-                                Intent intent_userProfile = new Intent(Login.this, UserProfile.class);
+                                Intent intent_userProfile = new Intent(Login.this, MapsActivity.class);
                                 startActivity(intent_userProfile);
 
                             } catch (JSONException e) {

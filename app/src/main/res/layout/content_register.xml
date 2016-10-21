@@ -57,7 +57,8 @@
                     android:background="@drawable/edt_background"
                     android:hint="@string/first_name"
                     android:textColor="@color/white"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -76,7 +77,8 @@
                     android:background="@drawable/edt_background"
                     android:hint="@string/Last_name"
                     android:textColor="@color/white"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
