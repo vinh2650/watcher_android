@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "351212997426",
+    "firebase_url": "https://pivotal-pager-139023.firebaseio.com",
+    "project_id": "pivotal-pager-139023",
+    "storage_bucket": "pivotal-pager-139023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351212997426:android:f970ac42a2afe806",
+        "android_client_info": {
+          "package_name": "com.example.dell.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351212997426-b4e7hl35nv5ftmrs62d8mr041du52ue0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [ { "current_key": AIzaSyDpnPw2ki5nv0aqp5-u7D3G_vgffo2_eJA } ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -107,7 +107,7 @@
                     android:padding="0dp"
                     android:selectAllOnFocus="true"
                     android:textColor="#FEFEFE"
-                    android:textSize="19sp" />
+                    android:textSize="19sp"/>
             </LinearLayout>
 
             <!--Password-->
@@ -139,7 +139,7 @@
                     android:padding="0dp"
                     android:selectAllOnFocus="true"
                     android:textColor="#FEFEFE"
-                    android:textSize="19sp" />
+                    android:textSize="19sp"/>
             </LinearLayout>
         </LinearLayout>
 

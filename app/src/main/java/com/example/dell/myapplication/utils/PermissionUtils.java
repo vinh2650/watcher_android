@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.dell.myapplication;
+package com.example.dell.myapplication.utils;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -24,8 +24,10 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
+import com.example.dell.myapplication.MapsActivity;
+import com.example.dell.myapplication.R;
 
 /**
  * Utility class for access to runtime permissions.
